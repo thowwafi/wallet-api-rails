@@ -1,6 +1,6 @@
 class User < Entity
-    after_create :create_wallet
-
+    
+    has_one :wallet, as: :owner
     validates :email, presence: true
     validates :password, presence: true
     
@@ -18,9 +18,7 @@ class User < Entity
         nil
     end
 
-    private
-
-    def create_wallet
-        Wallet.create(owner: self)
+    def as_json(options = {})
+        super(options.merge(methods: :type))
     end
 end

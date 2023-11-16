@@ -2,7 +2,8 @@ class Api::WalletsController < Api::ApiController
     before_action :set_user, only: [:show, :update]
 
     def show
-        render json: @user.wallet, status: :ok
+        print "Here-----"
+        render json: @entity.wallet, status: :ok
     end
 
     def update
@@ -16,7 +17,7 @@ class Api::WalletsController < Api::ApiController
     private
 
     def set_user
-        @user = User.find(params[:user_id])
+        @entity = Entity.find(params[:entity_id])
     end
 
     def wallet_params

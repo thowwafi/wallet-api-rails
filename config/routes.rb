@@ -10,24 +10,8 @@ Rails.application.routes.draw do
   # config/routes.rb
   namespace :api, defaults: { format: 'json' } do
     resources :sessions, only: [:create, :destroy]
-  
-    resources :users do
-      resource :wallet, only: [:show, :update] do
-        resources :transactions, only: [:index, :create]
-      end
-    end
-  
-    resources :teams do
-      resources :wallet, only: [:show, :update] do
-        resources :transactions, only: [:index, :create]
-      end
-    end
-  
-    resources :stocks do
-      resources :wallet, only: [:show, :update] do
-        resources :transactions, only: [:index, :create]
-      end
-    end
+    resources :entities, only: [:show, :update]
+    resources :transactions, only: [:index, :create]
   
     get '/latest_stock_price/:symbol', to: 'latest_stock_price#price'
     post '/latest_stock_price/prices', to: 'latest_stock_price#prices'

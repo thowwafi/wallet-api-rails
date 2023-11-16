@@ -1,4 +1,4 @@
 class Stock < Entity
-    # Stock-specific attributes and methods
+    has_one :wallet, as: :owner
     validates :symbol, presence: true
 end
