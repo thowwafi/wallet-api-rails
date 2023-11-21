@@ -1,4 +1,63 @@
 
+# Project Setup Documentation
+
+## Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (version 3.x recommended)
+- [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html#installing-rails) (version 7.x recommended)
+- [SQLite](https://www.sqlite.org/download.html) (or any other preferred database)
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/thowwafi/wallet-api-rails.git
+cd wallet-api-rails
+```
+
+## Install Dependencies
+
+```bash
+bundle install
+```
+
+## Database Setup
+
+### Create the Database
+
+```bash
+rails db:create
+```
+
+### Run Migrations
+
+```bash
+rails db:migrate
+```
+
+### Seed the Database (if needed)
+
+```bash
+rails db:seed
+```
+
+## Start the Server
+
+```bash
+rails server
+```
+
+The Rails server will start, and your application will be accessible at `http://localhost:3000`.
+
+# Additional Notes
+
+- **Database Configuration**: If you need to change the database configuration, modify the `config/database.yml` file.
+
+- **Environment Variables**: If your application requires environment variables, consider using a tool like `dotenv` or configure them directly.
+
+- **Other Dependencies**: If your project uses other services (Redis, external APIs), ensure they are installed and configured.
+
 # API Documentation
 
 ## Sign In
